@@ -1,0 +1,44 @@
+HOW TO USE: brain-recall
+=========================
+
+PURPOSE
+  Perform lightning-fast semantic retrieval against your personal Second Brain
+  knowledge base. Finds decisions, setup details, architectural records,
+  and personal preferences across all previous sessions.
+
+CAPABILITIES
+  - Intent-framed query expansion for optimal semantic matching
+  - Graph hops (--hops 1 or 2) to pull connected cause-and-effect memories
+  - Tag filtering (--tag <name>)
+  - Memory kind filtering (--kind semantic|episodic)
+  - Result limit control (--topK <N>)
+  - Truncation warnings with direct /brain-get suggestions
+
+USE CASES
+  - "What did we decide about the audio buffer implementation?"
+  - "Find my preferred color themes or UI kits"
+  - "Search past debugging steps for Ableton OSC dropouts"
+  - "Review decisions made under the #live-actions tag"
+
+IDEAS
+  - Always use --hops 1 when you want to know WHY a decision was made
+  - Use --tag task to see open or past action items
+  - Use --kind semantic for permanent rules and preferences
+
+PROMPTS YOU CAN PASTE
+  /brain-recall audio dropouts in Ableton --hops 1
+
+  /brain-recall Live Actions architecture --topK 10
+
+  /brain-recall preferred UI theme --kind semantic
+
+  /brain-recall open tasks --tag task
+
+EXAMPLE FLOW
+  You: /brain-recall WebView2 architecture
+  Agent: [Queries second-brain MCP with intent framing, returns top matching entries with ID, date, tags, and summary]
+
+DEFAULT GOALS IF YOU DON'T NAME ONE
+  1. Perform semantic search for the provided topic with intent framing
+  2. Display clear list of results with ID, tags, and summary
+  3. Offer to fetch full content via /brain-get if any result is truncated
